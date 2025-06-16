@@ -1,0 +1,9 @@
+import os
+
+def save_user(user_id: int):
+    if not os.path.exists("users.txt"):
+        open("users.txt", "w").close()
+    with open("users.txt", "r+", encoding="utf-8") as f:
+        users = f.read().splitlines()
+        if str(user_id) not in users:
+            f.write(f"{user_id}\n")
